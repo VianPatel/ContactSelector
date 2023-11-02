@@ -66,7 +66,7 @@ while (scroller.scrollHeight - scroller.scrollTop > 400) {
  scroller.scrollTop.toString() + '/' + scroller.scrollHeight.toString() +
  ' = ' + (scroller.scrollTop / scroller.scrollHeight * 100).toString() + '%'
  );
- await sleep((Math.random() * 2 + 0.5)*1000);
+ await sleep(500/*(Math.random() * 2 + 0.5)*1000*/);
 }
   ```
 
