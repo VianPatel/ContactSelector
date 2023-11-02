@@ -38,41 +38,41 @@ run the jar file located in the `target` directory
   The following javascript code can be run in the directory tab:
 
   ```javascript
-  function sleep(ms) {
-   return new Promise((resolve) => {
-   setTimeout(resolve, ms);
-   });
-  }
+function sleep(ms) {
+ return new Promise((resolve) => {
+ setTimeout(resolve, ms);
+ });
+}
 
-  window.exportedContactsStorage = new Set();
-  window.scroller = document.querySelectorAll('.ZvpjBb.C8Dkz')[0].parentElement.parentElement.parentElement.parentElement.parentElement;
-  while (scroller.scrollHeight - scroller.scrollTop > 400) {
-   for (let element of document.querySelectorAll('.ZvpjBb.C8Dkz')[0].querySelectorAll('.XXcuqd')) {
-   if (element.firstChild.childNodes.length === 1) {
-   break;
-   }
-   let name = element.firstChild.childNodes[1].innerText;
-   let job = element.firstChild.childNodes[2].innerText;
-   let email = element.firstChild.childNodes[3].innerText;
-   let phone = element.firstChild.childNodes[4].innerText;
-   window.exportedContactsStorage.add(JSON.stringify({'name': name, 'job': job, 'email': email, 'phone': phone}));
-   }
-   scroller.scrollTo({
-   top: scroller.scrollTop + 400,
-   behavior: 'smooth'
-   });
-   console.log(
-   'Completed iteration;',
-   scroller.scrollTop.toString() + '/' + scroller.scrollHeight.toString() +
-   ' = ' + (scroller.scrollTop / scroller.scrollHeight * 100).toString() + '%'
-   );
-   await sleep(500);
-  }
+window.exportedContactsStorage = [];
+window.scroller = document.querySelectorAll('.ZvpjBb.C8Dkz')[0].parentElement.parentElement.parentElement.parentElement.parentElement;
+while (scroller.scrollHeight - scroller.scrollTop > 400) {
+ for (let element of document.querySelectorAll('.ZvpjBb.C8Dkz')[0].querySelectorAll('.XXcuqd')) {
+ if (element.firstChild.childNodes.length === 1) {
+ break;
+ }
+ let name = element.firstChild.childNodes[1].innerText;
+ let job = element.firstChild.childNodes[4].innerText;
+ let email = element.firstChild.childNodes[2].innerText;
+ let phone = element.firstChild.childNodes[3].innerText;
+ window.exportedContactsStorage.push({'name': name, 'job': job, 'email': email, 'phone': phone});
+ }
+ scroller.scrollTo({
+ top: scroller.scrollTop + 400,
+ behavior: 'smooth'
+ });
+ console.log(
+ 'Completed iteration;',
+ scroller.scrollTop.toString() + '/' + scroller.scrollHeight.toString() +
+ ' = ' + (scroller.scrollTop / scroller.scrollHeight * 100).toString() + '%'
+ );
+ await sleep((Math.random() * 2 + 0.5)*1000);
+}
   ```
 
   Credit: https://www.reddit.com/r/GoogleAppsScript/comments/qrtnfc/comment/ikmgh36
 
-  The exported contacts are saved in json inside the `window.exportedContactsStorage` variable. This should be downloaded and saved as `contacts.json`
+  The exported contacts are saved in json inside the `window.exportedContactsStorage` variable. This should be downloaded and saved as `contacts.json` by running the following in console and copying the string output `JSON.stringify(window.exportedContactsStorage);`
 
 </details>
 
