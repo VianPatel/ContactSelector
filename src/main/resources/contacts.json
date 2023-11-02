@@ -1,0 +1,11 @@
+[{
+    "name": "person last, person first",
+    "job": "role, location",
+    "email": "person@example.com",
+    "phone": "(555) 555-1234"
+}, {
+    "name": "person last2, person first2",
+    "job": "role, location",
+    "email": "person2@example.com",
+    "phone": "(555) 555-1235"
+}]
